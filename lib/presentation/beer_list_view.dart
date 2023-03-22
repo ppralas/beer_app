@@ -46,13 +46,11 @@ class BeerView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final beerValuereProvider = ref.watch(beerValueProvider);
-
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
         if (notification.metrics.pixels ==
             notification.metrics.maxScrollExtent) {
-          ref.read(beerValuereProvider.notifier).getBeer();
+          ref.read(beerValueProvider.notifier).getBeer();
         }
         return true;
       },
