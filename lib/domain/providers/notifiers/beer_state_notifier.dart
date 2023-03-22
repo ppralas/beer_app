@@ -42,12 +42,12 @@ class BeerStateNotifier extends StateNotifier<BeerState> {
     final result = await _beerRepository.getBeer();
     //raspakiravanje rezultata
     result.fold(
-      (l) => state = BeerState.failure(l),
-      (r) => state = BeerState.loaded(
+      (error) => state = BeerState.failure(error),
+      (beer) => state = BeerState.loaded(
         state.maybeWhen(
-          loading: (beers) => beers + r,
+          loading: (beers) => beers + beer,
           orElse: () {
-            return r;
+            return beer;
           },
         ),
       ),
@@ -56,5 +56,4 @@ class BeerStateNotifier extends StateNotifier<BeerState> {
   //uz listu koju imam trebam dodati novu listu s apija
   // u get beer trebam predati flag jel se zove prvi put il ne
   //ovo se radi (either) da se ne moramo baviti lovljenjem exceptiona ne moram imati try catch i cisci je kod :D koji god se desi error onda ce bit ulovljen i pretvorit ce se u left i ne mora se hendlat puno previse slucajeva
-
 }
