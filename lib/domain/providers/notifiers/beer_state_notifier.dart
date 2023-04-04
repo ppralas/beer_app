@@ -1,5 +1,4 @@
 import 'package:beers/data/repository.dart';
-import 'package:beers/domain/providers/entities/beer.dart';
 import 'package:beers/domain/providers/notifiers/beer_state.dart';
 import 'package:riverpod/riverpod.dart';
 
@@ -13,8 +12,9 @@ final beerValueProvider = StateNotifierProvider<BeerStateNotifier, BeerState>(
 //tip state notifiera je je beer state
 class BeerStateNotifier extends StateNotifier<BeerState> {
   final BeerRepository _beerRepository;
+
+  BeerStateNotifier(this._beerRepository) : super(BeerState.initial());
   //prilikom kreiranja dajem mu pocetni state
-  BeerStateNotifier(this._beerRepository) : super(const BeerState.initial());
   //dodavanje repozitorija, potreban dependency za api klijent
   //notifier dohvaca podatke s apija il bilo cega i to postavlja u state i on slusa UI
 

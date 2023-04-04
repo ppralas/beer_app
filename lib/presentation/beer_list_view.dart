@@ -8,7 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 //probati na ovom primjeru napisati repozitorij koji ce imati samo
-
 class BeerListView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
