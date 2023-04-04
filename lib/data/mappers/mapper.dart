@@ -5,9 +5,12 @@ import 'package:riverpod/riverpod.dart';
 //ovaj Response u Entity Function(Response) je zapravo T
 typedef EntityMapper<Entity, Response> = Entity Function(Response);
 
-final beersEntityMapperProvider = Provider<EntityMapper<Beer, BeerResponse>>(
-    ((ref) =>
-        (response) => Beer(response.brand, response.alcohol, response.name)));
+final beersEntityMapperProvider =
+    Provider<EntityMapper<Beer, BeerResponse>>(((ref) => (response) => Beer(
+          response.brand,
+          response.alcohol,
+          response.name,
+        )));
 
 
 //napraviti paginaciju
