@@ -12,7 +12,7 @@ final beerRepositoryProvider = Provider(((ref) => BeerRepositoryImpl(
     )));
 
 abstract class BeerRepository {
-  Future<Either<Failure, List<Beer>>>getBeer();
+  Future<Either<Failure, List<Beer>>> getBeers();
 }
 
 class BeerRepositoryImpl implements BeerRepository {
@@ -22,9 +22,9 @@ class BeerRepositoryImpl implements BeerRepository {
   BeerRepositoryImpl(this.beerApi, this.mapper);
 
   @override
-  Future<Either<Failure, List<Beer>>> getBeer() async {
+  Future<Either<Failure, List<Beer>>> getBeers() async {
     try {
-      final beers = await beerApi.getBeer();
+      final beers = await beerApi.getBeers();
       return right(beers.map((e) => mapper(e)).toList());
     } catch (error, StackTrace) {
       return left(Failure(error, StackTrace));

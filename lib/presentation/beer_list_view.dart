@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:beers/domain/providers/entities/beer.dart';
 import 'package:beers/domain/providers/notifiers/beer_state_notifier.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -49,7 +48,7 @@ class BeerView extends ConsumerWidget {
       onNotification: (notification) {
         if (notification.metrics.pixels ==
             notification.metrics.maxScrollExtent) {
-          ref.read(beerValueProvider.notifier).getBeer();
+          ref.read(beerValueProvider.notifier).getBeers();
         }
         return true;
       },
@@ -109,7 +108,7 @@ class BeerView extends ConsumerWidget {
                     ),
                     FloatingActionButton(
                       onPressed: () =>
-                          ref.read(beerValueProvider.notifier).getBeer(),
+                          ref.read(beerValueProvider.notifier).getBeers(),
                       child: Icon(Icons.refresh),
                       backgroundColor: Colors.white,
                       foregroundColor: Colors.green,

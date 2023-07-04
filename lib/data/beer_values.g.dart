@@ -21,7 +21,7 @@ class _BeerValuesApiClient implements BeerValuesApiClient {
   String? baseUrl;
 
   @override
-  Future<List<BeerResponse>> getBeer() async {
+  Future<List<BeerResponse>> getBeers() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

@@ -12,5 +12,5 @@ abstract class BeerValuesApiClient {
   factory BeerValuesApiClient(Dio dio, {String baseUrl}) = _BeerValuesApiClient;
 
   @GET('/beers?size=3')
-  Future<List<BeerResponse>> getBeer();
+  Future<List<BeerResponse>> getBeers();
 }
